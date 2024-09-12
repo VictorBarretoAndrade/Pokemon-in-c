@@ -39,7 +39,7 @@ int CriarPikachu(pokemon *p){
 
 int main()
 {
-    printf("juhdsbcuyabyu");
+    
     tp_pilha pescolhidos;
     InicializarPilha(&pescolhidos);
     
