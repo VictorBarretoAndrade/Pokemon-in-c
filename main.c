@@ -17,15 +17,15 @@ typedef struct{
 }pokemon;
 
 
-/*int CriarPikachu(pokemon *p){
-    p->nome='Pikachu';
-    p->vida = p->vidaatua =
+int CriarFroakie(pokemon *p){
+    p->nome='Froakie';
+    p->vida = p->vidaatua = 41;
     p->h = 
     p-> catchrate = 
     
 }
 
-int CriarPikachu(pokemon *p){
+/*int CriarPikachu(pokemon *p){
     p->nome='Pikachu';
     p->vida = 
     p->h = 
