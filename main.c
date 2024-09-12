@@ -19,7 +19,7 @@ typedef struct{
 
 int CriarFroakie(pokemon *p){
     p->nome='Froakie';
-    p->vida = p->vidaatua = 41;
+    p->vida = p->vidaatual = 41;
     p->h = 
     p-> catchrate = 
     
@@ -27,7 +27,7 @@ int CriarFroakie(pokemon *p){
 
 int CriarMudkip(pokemon *p){
     p->nome='Mudkip';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 50;
     p->h = 
     p-> catchrate = 
     
@@ -35,91 +35,91 @@ int CriarMudkip(pokemon *p){
 
 int CriarSquirtle(pokemon *p){
     p->nome='Squirtle';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 44;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarTorchic(pokemon *p){
     p->nome='Torchic';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 45;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarCyndaquil(pokemon *p){
     p->nome='Cindaquil';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 39;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarFuecoco(pokemon *p){
     p->nome='Fuecoco';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 67;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarChikorita(pokemon *p){
     p->nome='Chikorita';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 45;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarTurtwig(pokemon *p){
     p->nome='Turtwig';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 55;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarTreecko(pokemon *p){
     p->nome='Treecko';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 40;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarGrimer(pokemon *p){
     p->nome='Grimer';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 80;
     p->h = 
     p-> catchrate = 
     
 }
-int CriarEvans(pokemon *p){
-    p->nome='Evans';
-    p->vida =  p->vidaatua =
+int CriarEkans(pokemon *p){
+    p->nome='Ekans';
+    p->vida =  p->vidaatual = 35;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarKoffin(pokemon *p){
     p->nome='Koffing';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 40;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarSandshrew(pokemon *p){
     p->nome='Sandshrew';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 50;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarDiglett(pokemon *p){
     p->nome='Diglett';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 10;
     p->h = 
     p-> catchrate = 
     
 }
 int CriarCubone(pokemon *p){
     p->nome='Cubone';
-    p->vida =  p->vidaatua =
+    p->vida =  p->vidaatual = 50;
     p->h = 
     p-> catchrate = 
     
