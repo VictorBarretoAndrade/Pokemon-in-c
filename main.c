@@ -6,13 +6,18 @@
 typedef struct{
     int dano;
     char tipo[25]; //determina se serão super efetivos, normais ou pouco efetivos contra outro pokémon 
-}habilidades;
+}habilidade;
 
 typedef struct{
     char nome[25];
     int vidamax; //vida máxima do pokemon
     int vidaatual; //vida atual do pokemon
-    habilidades h;
+    habilidade h1;
+    habilidade h2;
+    tp_fila habilidades;
+    InicializaFila(&habilidades);
+    InsereFila(&habilidades, h1);
+    InsereFila(&habilidades, h2)
     int catchrate;
     int nivel;
 }pokemon;
