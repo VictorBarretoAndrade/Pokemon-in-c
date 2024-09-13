@@ -1,0 +1,45 @@
+void loja(Jogador *j *qpokebola *qpocao *qrevive) {
+    int opcao;
+    printf("Bem-vindo à loja! Você tem %d dinheiros.\n", j->dinheiros);
+    printf("1. Comprar poção (300 dinheiros)\n");
+    printf("2. Comprar pokébola (300 dinheiros)\n");
+    printf("3. Revive (500 dinheiros)\n");
+    printf("4. Sair da loja\n");
+
+    scanf("%d", &opcao);
+
+    switch(opcao) {
+        case 1:
+            if (j->dinheiros >= 300) {
+                j->dinheiros -= 300;
+                printf("Você comprou uma poção!\n");
+                *qpocao++
+            } else {
+                printf("Moedas insuficientes!\n");
+            }
+        break;
+        case 2:
+            if (j->dinheiros >= 300) {
+                j->dinheiros -= 300;
+                printf("Você comprou uma pokébola!\n");
+                *qpokebola++
+            } else {
+                printf("Moedas insuficientes!\n");
+            }
+        break;
+         case 3:
+            if (j->dinheiros >= 500) {
+                j->dinheiros -= 500;
+                printf("Você comprou um Revive!\n");
+                *qrevive++
+            } else {
+                printf("Moedas insuficientes!\n");
+            }
+        break;
+        case 4:
+            printf("Saindo da loja\n");
+            break;
+        default:
+            printf("Opção inválida!\n");
+    }
+}
