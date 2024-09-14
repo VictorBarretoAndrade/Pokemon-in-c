@@ -153,6 +153,31 @@ int CriarCubone(pokemon *p){
 
 int main()
 {
+
+    habilidade Arma_de_agua;
+    habilidade.Arma_de_agua.dano = 20;
+    habilidade.Arma_de_agua.tipo = "agua";
+
+    habilidade Brasa;
+    habilidade.Arma_de_agua.dano = 20;
+    habilidade.Arma_de_agua.tipo = "fogo";
+
+    habilidade Folhagem;
+    habilidade.Arma_de_agua.dano = 20;
+    habilidade.Arma_de_agua.tipo = "planta";
+
+    habilidade Acido;
+    habilidade.Arma_de_agua.dano = 20;
+    habilidade.Arma_de_agua.tipo = "acido";
+
+    habilidade Enfrentar;
+    habilidade.Arma_de_agua.dano = 20;
+    habilidade.Arma_de_agua.tipo = "normal";
+    
+    habilidade Tiro de lama;
+    habilidade.Arma_de_agua.dano = 20;
+    habilidade.Arma_de_agua.tipo = "terra";
+    
     pokemon Froakie;
     pokemon.Froakie.h1 = "Arma de água";
     pokemon.Froakie.h2 = "Enfrentar";
