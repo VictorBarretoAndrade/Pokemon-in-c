@@ -20,6 +20,7 @@ typedef struct{
     InsereFila(&habilidades, h2)
     int catchrate;
     int nivel;
+    char tipo;
 }pokemon;
 
 
@@ -152,6 +153,67 @@ int CriarCubone(pokemon *p){
 
 int main()
 {
+    pokemon Froakie;
+    pokemon.Froakie.h1 = "Arma de água";
+    pokemon.Froakie.h2 = "Enfrentar";
+    
+    pokemon Mudkip;
+    pokemon.Mudkip.h1 = "Arma de água";
+    pokemon.Mudkip.h2 = "Enfrentar";
+    
+    pokemon Squirtle;
+    pokemon.Squirtle.h1 = "Arma de água";
+    pokemon.Squirtle.h1 = "Enfrentar";
+    
+    pokemon Torchic;
+    pokemon.Torchic.h1 = "Brasa";
+    pokemon.Torchic.h2 = "Enfrentar";
+    
+    pokemon Cyndaquil;
+    pokemon.Cyndaquil.h1 = "Brasa";
+    pokemon.Cyndaquil.h2 = "Enfrentar";
+    
+    pokemon Fuecoco;
+    pokemon.Fuecoco.h1 = "Brasa";
+    pokemon.Fuecoco.h2 = "Enfrentar";
+    
+    pokemon Chikorita;
+    pokemon.Chikorita.h1 = "Folhagem";
+    pokemon.Chikorita.h2 = "Enfrentar";
+    
+    pokemon Turtwig;
+    pokemon.Turtwig.h1 = "Folhagem";
+    pokemon.Turtwig.h2 = "Enfrentar";
+    
+    pokemon Treecko;
+    pokemon.Treecko.h1 = "Folhagem";
+    pokemon.Treecko.h2 = "Enfrentar";
+    
+    pokemon Grimer;
+    pokemon.Grimer.h1 = "Acido";
+    pokemon.Grimer.h2 = "Enfrentar";
+    
+    pokemon Ekans;
+    pokemon.Ekans.h1 = "Acido";
+    pokemon.Ekans.h2 = "Enfrentar";
+    
+    pokemon Koffin;
+    pokemon.Koffin.h1 = "Acido";
+    pokemon.Koffin.h2 = "Enfrentar";
+    
+    pokemon Sandshrew;
+    pokemon.Sandshrew.h1 = "Tiro de lama";
+    pokemon.Sandshrew.h2 = "Enfrentar";
+    
+    pokemon Diglett;
+    pokemon.Diglett.h1 = "Tiro de lama";
+    pokemon.Diglett.h2 = "Enfrentar";
+    
+    pokemon Cubone;
+    pokemon.Cubone.h1 = "Tiro de lama";
+    pokemon.Cubone.h2 = "Enfrentar";
+   
+    
     char p1[20], p2[20], p3[20];
     
     tp_pilha pescolhidos;
