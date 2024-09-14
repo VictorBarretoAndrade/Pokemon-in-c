@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void embaralhar(int *pilha, int tamanho) {
+    
+    srand(time(NULL));
+
+   
+    for (int i = tamanho - 1; i > 0; i--) {
+
+        int j = rand() % (i + 1);
+
+
+        int auxiliar = pilha[i];
+        pilha[i] = pilha[j];
+        pilha[j] = auxiliar;
+    }
+}
