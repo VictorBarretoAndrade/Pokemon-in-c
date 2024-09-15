@@ -349,8 +349,8 @@ int main()
     push(&pescolhidos, p2);
     push(&pescolhidos, p3);
 
-    
-    
+    imprimePilha(pescolhidos);
+    imprimePilha(presto);
 
     pokemon pikachu; // cria uma variável do tipo pokemon
       
