@@ -46,14 +46,11 @@ typedef struct{
     int vidaatual; //vida atual do pokemon
     habilidade h1;
     habilidade h2;
-    tp_fila habilidades;
-    InicializaFila(&habilidades);
-    InsereFila(&habilidades, h1);
-    InsereFila(&habilidades, h2)
     int catchrate;
     int nivel;
     char tipo;
 }pokemon;
+
 
 
 int main()
@@ -83,68 +80,244 @@ int main()
     tiro_de_lama.dano = 20;
     strcpy(tiro_de_lama.tipo, "terra");
     
+    char hab[20];
+    int e, e2;
+    /*
+    arma de água = 1
+    brasa = 2
+    folhagem = 3
+    ácido = 4
+    tiro de lama = 5
+    enfrentar = 6
+    */
     pokemon Froakie;
-    Froakie.h1 = arma_de_agua;
-    Froakie.h2 = enfrentar;
+    tp_fila hfroakie;
+    insereFila (&hfroakie, 1);
+    insereFila (&hfroakie, 6);
+    retiraFila (&hfroakie, &e);
+    retiraFila (&hfroakie, &e2);
+    if(e==1){
+        Froakie.h1 = arma_de_agua;
+    }
+    if(e2==6){
+        Froakie.h2 = enfrentar;
+    }
+    
+    
     
     pokemon Mudkip;
-    Mudkip.h1 = arma_de_agua;
-    Mudkip.h2 = enfrentar;
+    tp_fila hmudkip;
+    iniciaFila(&hmudkip);
+    insereFila (&hmudkip, 1);
+    insereFila (&hmudkip, 6);
+    retiraFila (&hmudkip, &e);
+    retiraFila (&hmudkip, &e2);
+    if(e==1){
+        Mudkip.h1 = arma_de_agua;
+    }
+    if(e2==6){
+        Mudkip.h2 = enfrentar;
+    }
+    
     
     pokemon Squirtle;
-    Squirtle.h1 = arma_de_agua;
-    Squirtle.h1 = enfrentar;
+    tp_fila hsquirtle;
+    iniciaFila(&hsquirtle);
+    insereFila (&hsquirtle, 1);
+    insereFila (&hsquirtle, 6);
+    retiraFila (&hsquirtle, &e);
+    retiraFila (&hsquirtle, &e2);
+    if(e==1){
+        Squirtle.h1 = arma_de_agua;
+    }
+    if(e2==6){
+        Squirtle.h2 = enfrentar;
+    }
+    
     
     pokemon Torchic;
-    Torchic.h1 = brasa;
-    Torchic.h2 = enfrentar;
+    tp_fila htorchic;
+    iniciaFila(&htorchic);
+    insereFila (&htorchic, 2);
+    insereFila (&htorchic, 6);
+    retiraFila (&htorchic, &e);
+    retiraFila (&htorchic, &e2);
+    if(e==2){
+        Torchic.h1 = brasa;
+    }
+    if(e2==6){
+        Torchic.h2 = enfrentar;
+    }
+    
     
     pokemon Cyndaquil;
-    Cyndaquil.h1 = brasa;
-    Cyndaquil.h2 = enfrentar;
+    tp_fila hcyndaquil;
+    iniciaFila(&hcyndaquil);
+    insereFila (&hcyndaquil, 2);
+    insereFila (&hcyndaquil, 6);
+    retiraFila (&hcyndaquil, &e);
+    retiraFila (&hcyndaquil, &e2);
+    if(e==2){
+        Cyndaquil.h1 = brasa;
+    }
+    if(e2==6){
+        Cyndaquil.h2 = enfrentar;
+    }
+    
     
     pokemon Fuecoco;
-    Fuecoco.h1 = brasa;
-    Fuecoco.h2 = enfrentar;
+    tp_fila hfuecoco;
+    iniciaFila(&hfuecoco);
+    insereFila (&hfuecoco, 2);
+    insereFila (&hfuecoco, 6);
+    retiraFila (&hfuecoco, &e);
+    retiraFila (&hfuecoco, &e2);
+    if(e==2){
+        Fuecoco.h1 = brasa;
+    }
+    if(e2==6){
+        Fuecoco.h2 = enfrentar;
+    }
+    
     
     pokemon Chikorita;
-    Chikorita.h1 = folhagem;
-    Chikorita.h2 = enfrentar;
+    tp_fila hchikorita;
+    iniciaFila(&hchikorita);
+    insereFila (&hchikorita, 3);
+    insereFila (&hchikorita, 6);
+    retiraFila (&hchikorita, &e);
+    retiraFila (&hchikorita, &e2);
+    if(e==3){
+        Chikorita.h1 = folhagem;
+    }
+    if(e2==6){
+        Chikorita.h2 = enfrentar;
+    }
+    
     
     pokemon Turtwig;
-    Turtwig.h1 = folhagem;
-    Turtwig.h2 = enfrentar;
+    tp_fila hturtwig;
+    iniciaFila(&hturtwig);
+    insereFila (&hturtwig, 3);
+    insereFila (&hturtwig, 6);
+    retiraFila (&hturtwig, &e);
+    retiraFila (&hturtwig, &e2);
+    if(e==3){
+        Turtwig.h1 = folhagem;
+    }
+    if(e2==6){
+        Turtwig.h2 = enfrentar;
+    }
+    
     
     pokemon Treecko;
-    Treecko.h1 = folhagem;
-    Treecko.h2 = enfrentar;
+    tp_fila htreecko;
+    iniciaFila(&htreecko);
+    insereFila (&htreecko, 3);
+    insereFila (&htreecko, 6);
+    retiraFila (&htreecko, &e);
+    retiraFila (&htreecko, &e2);
+    if(e==3){
+        Treecko.h1 = folhagem;
+    }
+    if(e2==6){
+        Treecko.h2 = enfrentar;
+    }
+    
     
     pokemon Grimer;
-    Grimer.h1 = acido;
-    Grimer.h2 = enfrentar;
+    tp_fila hgrimer;
+    iniciaFila(&hgrimer);
+    insereFila (&hgrimer, 4);
+    insereFila (&hgrimer, 6);
+    retiraFila (&hgrimer, &e);
+    retiraFila (&hgrimer, &e2);
+    if(e==4){
+        Grimer.h1 = acido;
+    }
+    if(e2==6){
+        Grimer.h2 = enfrentar;
+    }
+    
     
     pokemon Ekans;
-    Ekans.h1 = acido;
-    Ekans.h2 = enfrentar;
+    tp_fila hekans;
+    iniciaFila(&hekans);
+    insereFila (&hekans, 4);
+    insereFila (&hekans, 2);
+    retiraFila (&hekans, &e);
+    retiraFila (&hekans, &e2);
+    if(e==4){
+        Ekans.h1 = acido;
+    }
+    if(e2==6){
+        Ekans.h2 = enfrentar;
+    }
     
     pokemon Koffin;
-    Koffin.h1 = acido;
-    Koffin.h2 = enfrentar;
+    tp_fila hkoffin;
+    iniciaFila(&hkoffin);
+    insereFila (&hkoffin, 4);
+    insereFila (&hkoffin, 6);
+    retiraFila (&hkoffin, &e);
+    retiraFila (&hkoffin, &e2);
+    if(e==4){
+        Koffin.h1 = acido;
+    }
+    if(e2==6){
+        Koffin.h2 = enfrentar;
+    }
+    
     
     pokemon Sandshrew;
-    Sandshrew.h1 = tiro_de_lama;
-    Sandshrew.h2 = enfrentar;
+    tp_fila hsandshrew;
+    iniciaFila(&hsandshrew);
+    insereFila (&hsandshrew, 5);
+    insereFila (&hsandshrew, 6);
+    retiraFila (&hsandshrew, &e);
+    retiraFila (&hsandshrew, &e2);
+    if(e==5){
+        Sandshrew.h1 = tiro_de_lama;
+    }
+    if(e2==6){
+        Sandshrew.h2 = enfrentar;
+    }
+    
     
     pokemon Diglett;
-    Diglett.h1 = tiro_de_lama;
-    Diglett.h2 = enfrentar;
+    
+    tp_fila hdiglett;
+    iniciaFila(&hdiglett);
+    insereFila (&hdiglett, 5);
+    insereFila (&hdiglett, 6);
+    retiraFila (&hdiglett, &e);
+    retiraFila (&hdiglett, &e2);
+    if(e==5){
+        Diglett.h1 = tiro_de_lama;
+    }
+    if(e2==6){
+        Diglett.h2 = enfrentar;
+    }
+    
     
     pokemon Cubone;
-    Cubone.h1 = tiro_de_lama;
-    Cubone.h2 = enfrentar;
+    
+    tp_fila hcubone;
+    iniciaFila(&hcubone);
+    insereFila (&hcubone, 5);
+    insereFila (&hcubone, 6);
+    retiraFila (&hcubone, &e);
+    retiraFila (&hcubone, &e2);
+    if(e==5){
+        Cubone.h1 = tiro_de_lama;
+    }
+    if(e2==6){
+        Cubone.h2 = enfrentar;
+    }
+    
    
     
-    int p1, p2, p3, vet[15]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+    int p1, p2, p3;
     
     tp_pilha pescolhidos;
     InicializarPilha(&pescolhidos);
@@ -154,19 +327,20 @@ int main()
     scanf(" %s", nome);
 
 
-    printf("Digite quais destes pokemons você quer em sua equipe:(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15) \n");
+    printf("Digite quais destes pokemons você quer em sua equipe:(1,2,3,4,5,67,8,9,10,11,12,13,14,15) \n");
 
     //printa os pokemons q pedro fez aqui
 
-    scanf(" %d", &p1);
-    scanf(" %d", &p2);
-    scanf(" %d", &p3);
+    scanf(" %d", p1);
+    scanf(" %d", p2);
+    scanf(" %d", p3);
 
     push(&pescolhidos, p1);
     push(&pescolhidos, p2);
     push(&pescolhidos, p3);
-    removerelementos(vet, p1, p2, p3);
-    embaralhar(vet,12);
+
+    
+
     pokemon pikachu; // cria uma variável do tipo pokemon
       
    
