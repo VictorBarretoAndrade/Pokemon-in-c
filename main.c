@@ -165,8 +165,7 @@ int main()
     push(&pescolhidos, p1);
     push(&pescolhidos, p2);
     push(&pescolhidos, p3);
-    vet[15]
-    embaralhar 
+    removerelementos(vet, p1, p2, p3);
 
     pokemon pikachu; // cria uma variável do tipo pokemon
       
