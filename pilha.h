@@ -57,7 +57,64 @@ tp_item e;
 printf("\n");
 while(!pilhaVazia(&p)){ //se a pilha não estiver vazia, realiza o comando
 pop(&p, &e);
-printf("%d", e);
+printf(" %d", e);
+}
+}
+
+void imprimepoke(tp_pilha p){
+tp_item e;
+printf("\n");
+while(!pilhaVazia(&p)){ //se a pilha não estiver vazia, realiza o comando
+pop(&p, &e);
+    switch(e) {
+        case 1:
+            printf("Squirtle\n");
+            break;
+        case 2:
+            printf("Mudkip\n");
+            break;
+        case 3:
+            printf("Froakie\n");
+            break;
+        case 4:
+            printf("Cyndaquil\n");
+            break;
+        case 5:
+            printf("Torchic\n");
+            break;
+        case 6:
+            printf("Fuecoco\n");
+            break;
+        case 7:
+            printf("Chikorita\n");
+            break;
+        case 8:
+            printf("Treecko\n");
+            break;
+        case 9:
+            printf("Turtwig\n");
+            break;
+        case 10:
+            printf("Grimer\n");
+            break;
+        case 11:
+            printf("Ekans\n");
+            break;
+        case 12:
+            printf("Koffing\n");
+            break;
+        case 13:
+            printf("Sandshrew\n");
+            break;
+        case 14:
+            printf("Diglett\n");
+            break;
+        case 15:
+            printf("Cubone\n");
+            break;
+        default:
+            printf("Número inválido.\n");
+    }
 }
 }
 
