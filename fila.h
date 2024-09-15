@@ -72,7 +72,7 @@ int tamanhoFila2(tp_fila f){
 int cont = 0;
 tp_item e;
 while (!filaVazia(&f)){
-removeFila(&f, &e);
+retiraFila(&f, &e);
 cont++;
 return cont;
 }
