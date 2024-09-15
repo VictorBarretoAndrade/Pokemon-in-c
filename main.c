@@ -1,7 +1,24 @@
 #include <stdio.h>
 #include "fila.h"
 #include "pilha.h"
+#include <stdlib.h>
+#include <time.h>
 
+void embaralhar(int *pilha, int tamanho) {
+    
+    srand(time(NULL));
+
+   
+    for (int i = tamanho - 1; i > 0; i--) {
+
+        int j = rand() % (i + 1);
+
+
+        int auxiliar = pilha[i];
+        pilha[i] = pilha[j];
+        pilha[j] = auxiliar;
+    }
+}
 
 typedef struct{
     int dano;
@@ -239,7 +256,7 @@ int main()
     Cubone.h2 = enfrentar;
    
     
-    int p1, p2, p3;
+    int p1, p2, p3, vet[15]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
     
     tp_pilha pescolhidos;
     InicializarPilha(&pescolhidos);
@@ -260,8 +277,8 @@ int main()
     push(&pescolhidos, p1);
     push(&pescolhidos, p2);
     push(&pescolhidos, p3);
-
-    
+    vet[15]
+    embaralhar 
 
     pokemon pikachu; // cria uma variável do tipo pokemon
       
