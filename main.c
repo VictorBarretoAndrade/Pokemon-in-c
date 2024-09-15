@@ -3,7 +3,7 @@
 #include "pilha.h"
 #include <stdlib.h>
 #include <time.h>
-
+#include "hud.h"
 void embaralhar(int *pilha, int tamanho) {
     
     srand(time(NULL));
