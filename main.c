@@ -20,6 +20,21 @@ void embaralhar(int *pilha, int tamanho) {
     }
 }
 
+void removerelementos(int vetor[], int valor1, int valor2, int valor3) {
+    int i, j,tamanho=12;
+
+    for (i = 0; i < tamanho; i++) {
+        if (vetor[i] == valor1 || vetor[i] == valor2 || vetor[i] == valor3) {
+            for (j = i; j < tamanho - 1; j++) {
+                vetor[j] = vetor[j + 1];
+            }
+            (tamanho)--;
+            i--;
+        }
+    }
+}
+
+
 typedef struct{
     int dano;
     char tipo[25]; //determina se serão super efetivos, normais ou pouco efetivos contra outro pokémon 
