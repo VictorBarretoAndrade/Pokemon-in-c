@@ -52,13 +52,6 @@ f->tam --;
 return 1;
 }
 
-void printFila(tp_fila f){
-tp_item e;
-while(!filaVazia(&f)){
-retiraFila(&f, &e);
-printf("\n%d", e);
-}
-
 int tamanhoFila(tp_fila *f){ //melhor eficiência
 if (filaVazia(f)) {
 return 0; }
