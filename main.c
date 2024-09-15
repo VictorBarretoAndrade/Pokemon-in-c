@@ -317,7 +317,7 @@ int main()
 
 
 
-	int p1, p2, p3, vet[15];
+	int p1, p2, p3, vet[15]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 
 	tp_pilha pescolhidos;
 	tp_pilha presto;
