@@ -154,7 +154,7 @@ int main()
     scanf(" %s", nome);
 
 
-    printf("Digite quais destes pokemons você quer em sua equipe:(1,2,3,4,5,67,8,9,10,11,12,13,14,15) \n");
+    printf("Digite quais destes pokemons você quer em sua equipe:(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15) \n");
 
     //printa os pokemons q pedro fez aqui
 
