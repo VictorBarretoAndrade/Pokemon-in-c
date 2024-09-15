@@ -21,7 +21,7 @@ void embaralhar(int *pilha, int tamanho) {
 }
 
 void removerelementos(int vetor[], int valor1, int valor2, int valor3) {
-    int i, j,tamanho=12;
+    int i, j,tamanho=15;
 
     for (i = 0; i < tamanho; i++) {
         if (vetor[i] == valor1 || vetor[i] == valor2 || vetor[i] == valor3) {
@@ -158,15 +158,15 @@ int main()
 
     //printa os pokemons q pedro fez aqui
 
-    scanf(" %d", p1);
-    scanf(" %d", p2);
-    scanf(" %d", p3);
+    scanf(" %d", &p1);
+    scanf(" %d", &p2);
+    scanf(" %d", &p3);
 
     push(&pescolhidos, p1);
     push(&pescolhidos, p2);
     push(&pescolhidos, p3);
     removerelementos(vet, p1, p2, p3);
-
+    embaralhar(vet,12);
     pokemon pikachu; // cria uma variável do tipo pokemon
       
    
