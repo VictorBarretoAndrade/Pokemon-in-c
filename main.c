@@ -326,8 +326,13 @@ int main()
     printf("Digite seu nome:\n");
     scanf(" %s", nome);
 
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear"); 
+    #endif
 
-    printf("Digite quais destes pokemons você quer em sua equipe:(1,2,3,4,5,67,8,9,10,11,12,13,14,15) \n");
+    printf("Digite quais destes pokemons você quer em sua equipe:(1-Squirtle\n2-Mudkip\n3-Froakie\n4-Cyndaquil\n5-Torchic\n6-Fuecoco\n7-Chikorita\n8-Treecko\n9-Turtwig\n10-Grimer\n11-Ekans\n12-Koffing\n13-Sandshrew\n14-Diglett\n15-Cubone)");
 
     //printa os pokemons q pedro fez aqui
 
