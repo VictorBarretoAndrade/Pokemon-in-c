@@ -239,7 +239,7 @@ int main()
     Cubone.h2 = enfrentar;
    
     
-    char p1[20], p2[20], p3[20];
+    int p1, p2, p3;
     
     tp_pilha pescolhidos;
     InicializarPilha(&pescolhidos);
@@ -253,13 +253,15 @@ int main()
 
     //printa os pokemons q pedro fez aqui
 
-    scanf(" %s", p1);
-    scanf(" %s", p2);
-    scanf(" %s", p2);
+    scanf(" %d", p1);
+    scanf(" %d", p2);
+    scanf(" %d", p3);
 
     push(&pescolhidos, p1);
     push(&pescolhidos, p2);
     push(&pescolhidos, p3);
+
+    
 
     pokemon pikachu; // cria uma variável do tipo pokemon
       
