@@ -324,6 +324,12 @@ int main()
 	InicializarPilha(&pescolhidos);
 	InicializarPilha(&presto);
 	char nome[25];
+	printf("  ____           _       _                          ____\n");
+    printf(" / ___|__ _ _ __| |_ ___| |_ __ ___   ___  _ __    / ___| ___   \n");
+    printf("| |   / _` | '__| __/ _ \\ | '_ ` _ \\ / _ \\| '_ \\  | |  _ / _ \\  \n");
+    printf("| |__| (_| | |  | ||  __/ | | | | | | (_) | | | | | |_| | (_) | \n");
+    printf(" \\____\\__,_|_|   \\__\\___|_|_| |_| |_|\\___/|_| |_|  \\____|\\___/  \n");
+    printf("\n");
 	printf("Digite seu nome:\n");
 	scanf(" %s", nome);
 
