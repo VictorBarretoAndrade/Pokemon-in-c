@@ -2,7 +2,7 @@
 
 void disppoke (int num){
     scanf ("%d", &num);
-  switch (){
+  switch (num){
     case 1:
       printf("Deseja adicionar Squirtle à sua equipe?(s/n)\n");
       printf("\n");
