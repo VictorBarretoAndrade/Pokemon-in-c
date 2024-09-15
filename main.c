@@ -320,8 +320,9 @@ int main()
     int p1, p2, p3;
     
     tp_pilha pescolhidos;
+    tp_pilha presto;
     InicializarPilha(&pescolhidos);
-    
+    InicializarPilha(&presto);
     char nome[25];
     printf("Digite seu nome:\n");
     scanf(" %s", nome);
@@ -336,14 +337,19 @@ int main()
 
     //printa os pokemons q pedro fez aqui
 
-    scanf(" %d", p1);
-    scanf(" %d", p2);
-    scanf(" %d", p3);
-
+    scanf(" %d", &p1);
+    scanf(" %d", &p2);
+    scanf(" %d", &p3);
+    removerelementos(vet, p1, p2, p3);
+    embaralhar(vet,12);
+    for(int k=0; k<12;k++){
+    push(&presto,vet[i]);
+    }
     push(&pescolhidos, p1);
     push(&pescolhidos, p2);
     push(&pescolhidos, p3);
 
+    
     
 
     pokemon pikachu; // cria uma variável do tipo pokemon
