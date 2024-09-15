@@ -154,89 +154,89 @@ int CriarCubone(pokemon *p){
 int main()
 {
 
-    habilidade Arma_de_agua;
-    habilidade.Arma_de_agua.dano = 20;
-    habilidade.Arma_de_agua.tipo = "agua";
+    habilidade arma_de_agua;
+    arma_de_agua.dano = 20;
+    strcpy(arma_de_agua.tipo, "agua");
 
-    habilidade Brasa;
-    habilidade.Arma_de_agua.dano = 20;
-    habilidade.Arma_de_agua.tipo = "fogo";
+    habilidade brasa;
+    brasa.dano = 20;
+    strcpy(brasa.tipo, "fogo");
 
-    habilidade Folhagem;
-    habilidade.Arma_de_agua.dano = 20;
-    habilidade.Arma_de_agua.tipo = "planta";
+    habilidade folhagem;
+    folhagem.dano = 20;
+    strcpy(folhagem.tipo, "planta");
 
-    habilidade Acido;
-    habilidade.Arma_de_agua.dano = 20;
-    habilidade.Arma_de_agua.tipo = "acido";
+    habilidade acido;
+    acido.dano = 20;
+    strcpy(acido.tipo, "acido");
 
-    habilidade Enfrentar;
-    habilidade.Arma_de_agua.dano = 20;
-    habilidade.Arma_de_agua.tipo = "normal";
+    habilidade enfrentar;
+    enfrentar.dano = 20;
+    strcpy(enfrentar.tipo, "normal");
     
-    habilidade Tiro de lama;
-    habilidade.Arma_de_agua.dano = 20;
-    habilidade.Arma_de_agua.tipo = "terra";
+    habilidade tiro_de_lama;
+    tiro_de_lama.dano = 20;
+    strcpy(tiro_de_lama.tipo, "terra");
     
     pokemon Froakie;
-    pokemon.Froakie.h1 = Arma_de_agua;
-    pokemon.Froakie.h2 = Enfrentar;
+    Froakie.h1 = arma_de_agua;
+    Froakie.h2 = enfrentar;
     
     pokemon Mudkip;
-    pokemon.Mudkip.h1 = Arma_de_agua;
-    pokemon.Mudkip.h2 = Enfrentar;
+    Mudkip.h1 = arma_de_agua;
+    Mudkip.h2 = enfrentar;
     
     pokemon Squirtle;
-    pokemon.Squirtle.h1 = Arma_de_agua;
-    pokemon.Squirtle.h1 = Enfrentar;
+    Squirtle.h1 = arma_de_agua;
+    Squirtle.h1 = enfrentar;
     
     pokemon Torchic;
-    pokemon.Torchic.h1 = Brasa;
-    pokemon.Torchic.h2 = Enfrentar;
+    Torchic.h1 = brasa;
+    Torchic.h2 = enfrentar;
     
     pokemon Cyndaquil;
-    pokemon.Cyndaquil.h1 = Brasa;
-    pokemon.Cyndaquil.h2 = Enfrentar;
+    Cyndaquil.h1 = brasa;
+    Cyndaquil.h2 = enfrentar;
     
     pokemon Fuecoco;
-    pokemon.Fuecoco.h1 = Brasa;
-    pokemon.Fuecoco.h2 = Enfrentar;
+    Fuecoco.h1 = brasa;
+    Fuecoco.h2 = enfrentar;
     
     pokemon Chikorita;
-    pokemon.Chikorita.h1 = Folhagem;
-    pokemon.Chikorita.h2 = Enfrentar;
+    Chikorita.h1 = folhagem;
+    Chikorita.h2 = enfrentar;
     
     pokemon Turtwig;
-    pokemon.Turtwig.h1 = Folhagem;
-    pokemon.Turtwig.h2 = Enfrenta;
+    Turtwig.h1 = folhagem;
+    Turtwig.h2 = enfrentar;
     
     pokemon Treecko;
-    pokemon.Treecko.h1 = Folhagem;
-    pokemon.Treecko.h2 = Enfrentar;
+    Treecko.h1 = folhagem;
+    Treecko.h2 = enfrentar;
     
     pokemon Grimer;
-    pokemon.Grimer.h1 = Acido;
-    pokemon.Grimer.h2 = Enfrentar;
+    Grimer.h1 = acido;
+    Grimer.h2 = enfrentar;
     
     pokemon Ekans;
-    pokemon.Ekans.h1 = Acido;
-    pokemon.Ekans.h2 = Enfrentar;
+    Ekans.h1 = acido;
+    Ekans.h2 = enfrentar;
     
     pokemon Koffin;
-    pokemon.Koffin.h1 = Acido;
-    pokemon.Koffin.h2 = Enfrentar;
+    Koffin.h1 = acido;
+    Koffin.h2 = enfrentar;
     
     pokemon Sandshrew;
-    pokemon.Sandshrew.h1 = Tiro_de_lama;
-    pokemon.Sandshrew.h2 = Enfrentar;
+    Sandshrew.h1 = tiro_de_lama;
+    Sandshrew.h2 = enfrentar;
     
     pokemon Diglett;
-    pokemon.Diglett.h1 = Tiro_de_lama;
-    pokemon.Diglett.h2 = Enfrentar;
+    Diglett.h1 = tiro_de_lama;
+    Diglett.h2 = enfrentar;
     
     pokemon Cubone;
-    pokemon.Cubone.h1 = Tiro_de_lama;
-    pokemon.Cubone.h2 = Enfrentar;
+    Cubone.h1 = tiro_de_lama;
+    Cubone.h2 = enfrentar;
    
     
     char p1[20], p2[20], p3[20];
@@ -249,7 +249,7 @@ int main()
     scanf(" %s", nome);
 
 
-    printf("Digite quais destes pokemons você quer em sua equipe: \n");
+    printf("Digite quais destes pokemons você quer em sua equipe:(1,2,3,4,5,67,8,9,10,11,12,13,14,15) \n");
 
     //printa os pokemons q pedro fez aqui
 
