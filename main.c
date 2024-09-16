@@ -344,23 +344,41 @@ int main()
 	//printa os pokemons q pedro fez aqui
 
 	
-    char conf='n';
+char conf='n';
     while(conf != 's'){
         scanf("%d", &p1);
     disppoke(p1);
         scanf(" %c", &conf);
+        #ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
+	printf("Digite quais destes pokemons você quer em sua equipe:\nTIPO ÁGUA:   1-Squirtle   2-Mudkip   3-Froakie\nTIPO FOGO:   4-Cyndaquil  5-Torchic  6-Fuecoco\nTIPO PLANTA: 7-Chikorita  8-Treecko  9-Turtwig\nTIPO VENENO: 10-Grimer    11-Ekans   12-Koffing\nTIPO TERRA:  13-Sandshrew 14-Diglett 15-Cubone\n");
     }
      conf='n';
      while(conf != 's'){
         scanf("%d", &p2);
     disppoke(p2);
         scanf(" %c", &conf);
+                #ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
+	printf("Digite quais destes pokemons você quer em sua equipe:\nTIPO ÁGUA:   1-Squirtle   2-Mudkip   3-Froakie\nTIPO FOGO:   4-Cyndaquil  5-Torchic  6-Fuecoco\nTIPO PLANTA: 7-Chikorita  8-Treecko  9-Turtwig\nTIPO VENENO: 10-Grimer    11-Ekans   12-Koffing\nTIPO TERRA:  13-Sandshrew 14-Diglett 15-Cubone\n");
     }
    conf='n';
      while(conf != 's'){
         scanf("%d", &p3);
     disppoke(p3);
         scanf(" %c", &conf);
+                #ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
+	printf("Digite quais destes pokemons você quer em sua equipe:\nTIPO ÁGUA:   1-Squirtle   2-Mudkip   3-Froakie\nTIPO FOGO:   4-Cyndaquil  5-Torchic  6-Fuecoco\nTIPO PLANTA: 7-Chikorita  8-Treecko  9-Turtwig\nTIPO VENENO: 10-Grimer    11-Ekans   12-Koffing\nTIPO TERRA:  13-Sandshrew 14-Diglett 15-Cubone\n");
     }
 
 	removerelementos(vet, p1, p2, p3);
