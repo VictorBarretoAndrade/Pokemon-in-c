@@ -343,9 +343,26 @@ int main()
 
 	//printa os pokemons q pedro fez aqui
 
-	scanf(" %d", &p1);
-	scanf(" %d", &p2);
-	scanf(" %d", &p3);
+	
+    char conf='n';
+    while(conf != 's'){
+        scanf("%d", &p1);
+    disppoke(p1);
+        scanf(" %c", &conf);
+    }
+     conf='n';
+     while(conf != 's'){
+        scanf("%d", &p2);
+    disppoke(p2);
+        scanf(" %c", &conf);
+    }
+   conf='n';
+     while(conf != 's'){
+        scanf("%d", &p3);
+    disppoke(p3);
+        scanf(" %c", &conf);
+    }
+
 	removerelementos(vet, p1, p2, p3);
 	embaralhar(vet,12);
 	for(int k=0; k<12; k++) {
