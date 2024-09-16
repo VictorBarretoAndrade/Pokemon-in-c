@@ -344,7 +344,8 @@ int main()
 
 	//printa os pokemons q pedro fez aqui
 
-	
+	char repetido = 's';
+	while(repetido!='n'){
 char conf='n';
     while(conf != 's'){
         scanf("%d", &p1);
@@ -381,6 +382,14 @@ char conf='n';
 #endif
 	printf("Digite quais destes pokemons você quer em sua equipe:\nTIPO ÁGUA:   1-Squirtle   2-Mudkip   3-Froakie\nTIPO FOGO:   4-Cyndaquil  5-Torchic  6-Fuecoco\nTIPO PLANTA: 7-Chikorita  8-Treecko  9-Turtwig\nTIPO VENENO: 10-Grimer    11-Ekans   12-Koffing\nTIPO TERRA:  13-Sandshrew 14-Diglett 15-Cubone\n");
     }
+    
+    
+    if(p1==p2||p1==p3||p2==p3){
+        printf("Você escolheu pokemons repetidos... Escolha novamente\n");
+    }else{
+        repetido = 'n';
+    }
+	}
 
 	removerelementos(vet, p1, p2, p3);
 	embaralhar(vet,12);
