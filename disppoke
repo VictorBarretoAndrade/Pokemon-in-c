@@ -1,5 +1,5 @@
-#ifndef disppoke_h
-#define disppoke_h
+#ifndef DISSPOKE_H
+#define DISSPOKE_H
 #include <stdio.h>
 
 void disppoke (int num){
