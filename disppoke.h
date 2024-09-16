@@ -456,6 +456,7 @@ void disppoke (int num){
       break;
     default:
       printf("O número precisa ser de 1 a 15\n");
+      printf("Por favor, cancele a operação digitando 'n'\n");
        
    }}
 #endif
