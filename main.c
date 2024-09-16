@@ -390,8 +390,12 @@ char conf='n';
 	push(&pescolhidos, p1);
 	push(&pescolhidos, p2);
 	push(&pescolhidos, p3);
+	printf("\n\n");
 
+    printf("Seu time:\n");
 	imprimepoke(pescolhidos);
+	printf("\n\n");
+	printf("Pokemons embaralhados para o computador:\n");
 	imprimepoke(presto);
 
 
