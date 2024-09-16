@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include "disspoke.h"
 void embaralhar(int *pilha, int tamanho) {
 
 	srand(time(NULL));
