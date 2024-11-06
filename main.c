@@ -5,6 +5,7 @@
 #include <time.h>
 #include <string.h>
 #include "disppoke.h"
+#include "listase.h"
 void embaralhar(int *pilha, int tamanho) {
 
 	srand(time(NULL));
