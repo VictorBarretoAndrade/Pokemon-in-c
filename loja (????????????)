@@ -99,15 +99,15 @@ int main() {
     */
     //um negocinho desse faz o coisa todo
     
-    printf("Escolha um item da Lootbok:\n");
+    printf("Escolha um item da Lootbox:\n");
     atu=imprimelistaloja(atu);
     loja(&j, &qpokebola, &qpocao, &qrevive);
     
-    printf("Escolha um item da Lootbok:\n");
+    printf("Escolha um item da Lootbox:\n");
     atu=imprimelistaloja(atu);
     loja(&j, &qpokebola, &qpocao, &qrevive);
     
-    printf("Escolha um item da Lootbok:\n");
+    printf("Escolha um item da Lootbox:\n");
     atu=imprimelistaloja(atu);
     loja(&j, &qpokebola, &qpocao, &qrevive);
     
