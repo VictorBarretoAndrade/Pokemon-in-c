@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "listase.h"
+
+typedef struct {
+    int dinheiros;
+} Jogador;
+//acho q n precisa, na real
+
+
+void loja(Jogador *j, int *qpokebola, int *qpocao, int *qrevive) {
+    int opcao;
+    printf("Bem-vindo à loja! Você tem %d dinheiros.\n", j->dinheiros);
+    printf("1. Comprar poção (300 dinheiros)\n");
+    printf("2. Comprar pokébola (300 dinheiros)\n");
+    printf("3. Comprar revive (500 dinheiros)\n");
+    printf("4. Sair da loja\n");
+
+    scanf("%d", &opcao);
+
+    switch(opcao) {
+        case 1:
+            if (j->dinheiros >= 300) {
+                j->dinheiros -= 300;
+                printf("Você comprou uma poção!\n");
+                (*qpocao)++;
+            } else {
+                printf("Moedas insuficientes!\n");
+            }
+            break;
+        case 2:
+            if (j->dinheiros >= 300) {
+                j->dinheiros -= 300;
+                printf("Você comprou uma pokébola!\n");
+                (*qpokebola)++;
+            } else {
+                printf("Moedas insuficientes!\n");
+            }
+            break;
+        case 3:
+            if (j->dinheiros >= 500) {
+                j->dinheiros -= 500;
+                printf("Você comprou um revive!\n");
+                (*qrevive)++;
+            } else {
+                printf("Moedas insuficientes!\n");
+            }
+            break;
+        case 4:
+            printf("Saindo da loja\n");
+            break;
+        default:
+            printf("Opção inválida!\n");
+    }
+}
+
+void crialistaloja(tp_listase **l) {
+    *l = inicializaListase();
+    char pocao[50] = "poção";
+    char pokebola[50] = "pokébola";
+    char revive[50] = "revive";
+    
+    insereListaseFim(l, revive);
+    insereListaseFim(l, pocao);
+    insereListaseFim(l, pokebola);
+
+    tp_listase *atu = *l;
+    while (atu->prox != NULL) {
+        atu = atu->prox;
+    }
+    atu->prox = *l;  
+}
+
+tp_listase * imprimelistaloja(tp_listase *atu) {
+
+    for (int i = 0; i < 2; i++) { 
+        printf("%s\n", atu->info);
+        atu = atu->prox;
+    }
+    return atu;
+}
+
+int main() {
+    Jogador j;
+    j.dinheiros = 1000;
+    int qpokebola = 5, qpocao = 0, qrevive = 0;
+    
+    tp_listase *l;
+    tp_listase *atu;
+    
+    crialistaloja(&l);
+    atu=l;
+    
+    /*
+    printf("Escolha um item da Lootbok:\n");
+    atu=imprimelistaloja(atu);
+    loja(&j, &qpokebola, &qpocao, &qrevive);
+    */
+    //um negocinho desse faz o coisa todo
+    
+    printf("Escolha um item da Lootbok:\n");
+    atu=imprimelistaloja(atu);
+    loja(&j, &qpokebola, &qpocao, &qrevive);
+    
+    printf("Escolha um item da Lootbok:\n");
+    atu=imprimelistaloja(atu);
+    loja(&j, &qpokebola, &qpocao, &qrevive);
+    
+    printf("Escolha um item da Lootbok:\n");
+    atu=imprimelistaloja(atu);
+    loja(&j, &qpokebola, &qpocao, &qrevive);
+    
+    //tem q fazer alguma forma de escolher lootbox
+    //tb tentei jogar isso pra uma função separada, mas fui incapaz :(
+    
+    return 0;
+}
