@@ -111,7 +111,7 @@ int main() {
     atu=imprimelistaloja(atu);
     loja(&j, &qpokebola, &qpocao, &qrevive);
     
-    //tem q fazer alguma forma de escolher lootbox
+    //tem q fazer alguma forma de escolher lootbox ---> acho q tem q mudar pra listad
     //tb tentei jogar isso pra uma função separada, mas fui incapaz :(
     
     return 0;
