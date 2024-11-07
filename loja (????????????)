@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "listase.h"
 #include "listad.h"
+#include <unistd.h>
 
 typedef struct {
     int dinheiros;
@@ -12,6 +12,12 @@ typedef struct {
 
 void loja(Jogador *j, int *qpokebola, int *qpocao, int *qrevive) {
     int opcao;
+    #ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
+    printf("%d pokebolas, %d poções, %d revives\n\n", *qpokebola, *qpocao, *qrevive);
     printf("Bem-vindo à loja! Você tem %d dinheiros.\n", j->dinheiros);
     printf("1. Comprar poção (300 dinheiros)\n");
     printf("2. Comprar pokébola (300 dinheiros)\n");
@@ -24,41 +30,52 @@ void loja(Jogador *j, int *qpokebola, int *qpocao, int *qrevive) {
         case 1:
             if (j->dinheiros >= 300) {
                 j->dinheiros -= 300;
-                printf("Você comprou uma poção!\n");
+                printf("Você comprou uma poção!\n\n");
                 (*qpocao)++;
+                sleep(3);
             } else {
-                printf("Moedas insuficientes!\n");
+                printf("Moedas insuficientes!\n\n");
+                sleep(3);
             }
             break;
         case 2:
             if (j->dinheiros >= 300) {
                 j->dinheiros -= 300;
-                printf("Você comprou uma pokébola!\n");
+                printf("Você comprou uma pokébola!\n\n");
                 (*qpokebola)++;
+                sleep(3);
             } else {
-                printf("Moedas insuficientes!\n");
+                printf("Moedas insuficientes!\n\n");
+                sleep(3);
             }
             break;
         case 3:
             if (j->dinheiros >= 500) {
                 j->dinheiros -= 500;
-                printf("Você comprou um revive!\n");
+                printf("Você comprou um revive!\n\n");
                 (*qrevive)++;
+                sleep(3);
             } else {
-                printf("Moedas insuficientes!\n");
+                printf("Moedas insuficientes!\n\n");
+                sleep(3);
             }
             break;
         case 4:
-            printf("Saindo da loja\n");
+            printf("Saindo da loja\n\n");
+            sleep(3);
             break;
         default:
-            printf("Opção inválida!\n");
+            printf("Opção inválida!\n\n");
+            sleep(3);
+    }
+    if(opcao!=4){
+        loja(j, qpokebola, qpocao, qrevive);
     }
 }
 
 void crialistaloja(tp_listad **l) {
     *l = inicializa_listad();
-    char pocao[10] = "pocao";
+    char pocao[10] = "poção";
     char pokebola[10] = "pokebola";
     char revive[10] = "revive";
     
@@ -72,11 +89,16 @@ void crialistaloja(tp_listad **l) {
     //a lista tá certa
 }
 
-tp_listad * imprimelistalootbox(tp_listad *atu, int *qpokebola, int *qpocao, int *qrevive) {
+tp_listad * imprimelistalootbox(Jogador *j, tp_listad *atu, int *qpokebola, int *qpocao, int *qrevive) {
     int item;
     char * item_lootbox;
-    //printf("Entrou na função");
-    //printf("1 %s\n", atu->ini->info);
+     #ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
+    printf("%d pokebolas, %d poções, %d revives\n\n", *qpokebola, *qpocao, *qrevive);
+    printf("Escolha um item da Lootbox:\n");
     
     for (int i = 0; i < 2; i++) { 
         atu->ini = atu->ini->prox;
@@ -85,9 +107,9 @@ tp_listad * imprimelistalootbox(tp_listad *atu, int *qpokebola, int *qpocao, int
     scanf("%d", &item);
     if(item==2){
         item_lootbox = atu->ini->info;
-        printf("Você adquiriu um(a) %s!\n", item_lootbox);
+        printf("Você adquiriu um(a) %s!\n\n", item_lootbox);
         
-        if (strcmp(atu->ini->info, "pocao") == 0){
+        if (strcmp(atu->ini->info, "poção") == 0){
             (*qpocao)++;
         }
         else if (strcmp(atu->ini->info, "pokebola") == 0){
@@ -99,7 +121,7 @@ tp_listad * imprimelistalootbox(tp_listad *atu, int *qpokebola, int *qpocao, int
     }
     else if(item==1){
         item_lootbox = atu->ini->ant->info;
-        printf("Você adquiriu um(a) %s!\n", item_lootbox);
+        printf("Você adquiriu um(a) %s!\n\n", item_lootbox);
         
         if (strcmp(atu->ini->ant->info, "poção") == 0){
             (*qpocao)++;
@@ -111,6 +133,9 @@ tp_listad * imprimelistalootbox(tp_listad *atu, int *qpokebola, int *qpocao, int
             (*qrevive)++;
         }
     }
+    loja(j, qpokebola, qpocao, qrevive);
+    printf("%d pokebolas, %d poções, %d revives\n\n", *qpokebola, *qpocao, *qrevive);
+    
     return atu;
     
     
@@ -129,28 +154,20 @@ int main() {
     
     char *item_lootbox; //aponta para oq o usuario escolhe na lootbox
     
-    /*
-    printf("Escolha um item da Lootbok:\n");
-    atu=imprimelistalootbox(atu);
-    loja(&j, &qpokebola, &qpocao, &qrevive);
-    */
-    //um negocinho desse faz o coisa todo
     
-    printf("Escolha um item da Lootbox:\n");
-    atu=imprimelistalootbox(atu, &qpokebola, &qpocao, &qrevive);
-    loja(&j, &qpokebola, &qpocao, &qrevive);
     
-    printf("Escolha um item da Lootbox:\n");
-    atu=imprimelistalootbox(atu, &qpokebola, &qpocao, &qrevive);
-    loja(&j, &qpokebola, &qpocao, &qrevive);
     
-    printf("Escolha um item da Lootbox:\n");
-    atu=imprimelistalootbox(atu, &qpokebola, &qpocao, &qrevive);
-    loja(&j, &qpokebola, &qpocao, &qrevive);
+    //atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive);
     
-    printf("%d pokbolas, %d poções, %d revives", qpokebola, qpocao, qrevive);
     
-    //tem q fazer alguma forma de escolher lootbox ---> acho q tem q mudar pra listad   *------> FEITO
+    
+    //seria bom colocar a quantidade de cada coisa antes
+    
+    
+    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive);
+    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive);
+    
+    
     //tb tentei jogar isso pra uma função separada, mas fui incapaz :(
     
     return 0;
