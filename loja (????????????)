@@ -134,7 +134,12 @@ tp_listad * imprimelistalootbox(Jogador *j, tp_listad *atu, int *qpokebola, int 
         }
     }
     loja(j, qpokebola, qpocao, qrevive);
-    printf("%d pokebolas, %d poções, %d revives\n\n", *qpokebola, *qpocao, *qrevive);
+    
+    #ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
     
     return atu;
     
