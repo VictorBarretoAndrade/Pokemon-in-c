@@ -3,15 +3,15 @@
 #define PILHA_H
 //Inclua PILHA_H
 #include <stdio.h>
-#define MAX 100
-//toda vez q aparecer "MAX", ele troca por 100
+#define MAXP 100
+//toda vez q aparecer "MAXP", ele troca por 100
 
 typedef int
 tp_item;
 
 typedef struct{
 int topo;
-tp_item item[MAX];
+tp_item item[MAXP];
 }tp_pilha;
 
 void InicializarPilha(tp_pilha *p){
@@ -24,7 +24,7 @@ return 0; //se retornar 0, a pilha não está vazia
 }
 
 int pilhaCheia(tp_pilha *p){//se retornar 1, quer dizer q a pilha está cheia
-if(p->topo == MAX -1){
+if(p->topo == MAXP -1){
 return 1;
 }else{
 return 0;//se retornar 0, a pilha não está cheia
