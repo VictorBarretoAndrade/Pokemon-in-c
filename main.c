@@ -46,6 +46,9 @@ typedef struct {
 	char nome[25];
 	int vidamax; //vida mC!xima do pokemon
 	int vidaatual; //vida atual do pokemon
+	int defesa;
+	int velocidade;
+	int ataque;
 	habilidade h1;
 	habilidade h2;
 	int catchrate;
