@@ -1,19 +1,19 @@
 #ifndef FILA_H
 #define FILA_H
 #include <stdio.h>
-#define MAX 10
+#define MAXF 100
 
 typedef int
 tp_item;
 
 typedef struct {
-tp_item item[MAX];
+tp_item item[MAXF];
 int ini, fim;
 int tam;
 } tp_fila;
 
 void iniciaFila(tp_fila *f) {
-f->ini= f->fim = MAX-1;
+f->ini= f->fim = MAXF-1;
 f->tam = 0;
 }
 
@@ -23,7 +23,7 @@ return 0;
 }
 
 int proximo(int pos){
-if(pos == MAX-1) return 0;
+if(pos == MAXF-1) return 0;
 pos++;
 return pos;
 }
@@ -57,7 +57,7 @@ if (filaVazia(f)) {
 return 0; }
 if(f->ini < f->fim) {
 return f->fim - f->ini;
-return MAX - 1 - f->ini + f->fim +1;
+return MAXF - 1 - f->ini + f->fim +1;
 }
 }
 
