@@ -1,0 +1,25 @@
+pinimigo = popP(&Pilhainimigo);
+
+    if (strcmp(pnimigo.nome, "mudkip") || strcmp(pnimigo.nome, "torchic") || strcmp(pnimigo.nome, "turtwig") || strcmp(pnimigo.nome, "koffing") || strcmp(pnimigo.nome, "sandshrew"))
+	embaralhar(*presto,12); // VAI PRA MAIN DPS DO COMBATE
+	pinimigo.vidamax = pinimigo.vidamax + ( 2 * (r/2));
+	pinimigo.vidaatual = pinimigo.vidaatual + ( 2 * (r/2)); //  FAZER A MESMA COISA PROS NOSSOS BIXOS NA MAIN, TODA VEZ QUE ACABA O COMBATE
+	pinimigo.ataque = pinimigo.ataque + ( 2 * (r/2));  // DEFESA ATAQUE VELOCIDADE
+	pinimigo.defesa = pinimigo.defesa + ( 1 * (r/2));
+	pinimigo.velocidade = pinimigo.velocidade + ( 1 * (r/2));
+	
+	else if (strcmp(pnimigo.nome, "squirtle") || strcmp(pnimigo.nome, "fuecoco") || strcmp(pnimigo.nome, "chikorita") || strcmp(pnimigo.nome, "grimer") || strcmp(pnimigo.nome, "cubone"))
+	embaralhar(*presto,12); // VAI PRA MAIN DPS DO COMBATE
+	pinimigo.vidamax = pinimigo.vidamax + ( 2 * (r/2));
+	pinimigo.vidaatual = pinimigo.vidaatual + ( 2 * (r/2)); //  FAZER A MESMA COISA PROS NOSSOS BIXOS NA MAIN, TODA VEZ QUE ACABA O COMBATE
+	pinimigo.ataque = pinimigo.ataque + ( 1 * (r/2));  // DEFESA ATAQUE VELOCIDADE
+	pinimigo.defesa = pinimigo.defesa + ( 2 * (r/2));
+	pinimigo.velocidade = pinimigo.velocidade + ( 1 * (r/2));
+	
+	else if (strcmp(pnimigo.nome, "froakie") || strcmp(pnimigo.nome, "cyndaquil") || strcmp(pnimigo.nome, "treecko") || strcmp(pnimigo.nome, "ekans") || strcmp(pnimigo.nome, "diglett"))
+	embaralhar(*presto,12); // VAI PRA MAIN DPS DO COMBATE
+	pinimigo.vidamax = pinimigo.vidamax + ( 2 * (r/2));
+	pinimigo.vidaatual = pinimigo.vidaatual + ( 2 * (r/2)); //  FAZER A MESMA COISA PROS NOSSOS BIXOS NA MAIN, TODA VEZ QUE ACABA O COMBATE
+	pinimigo.ataque = pinimigo.ataque + ( 1 * (r/2));  // DEFESA ATAQUE VELOCIDADE
+	pinimigo.defesa = pinimigo.defesa + ( 1 * (r/2));
+	pinimigo.velocidade = pinimigo.velocidade + ( 2 * (r/2));
