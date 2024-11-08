@@ -323,12 +323,15 @@ int main()
 
 
 
-	int p1, p2, p3, vet[15]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
-
-	tp_pilha pescolhidos;
-	tp_pilha presto;
-	InicializarPilha(&pescolhidos);
-	InicializarPilha(&presto);
+int rounds=0, p1=0, p2=0, p3=0, vet[15]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};//TRANSFORMAR EM POKE
+    pokemon pp1,pp2,pp3;
+	Pilha pescolhidos;
+	Pilha presto;
+	Pilha pmortos;
+	
+	inicializaPilhaP(&pmortos);
+	inicializaPilhaP(&pescolhidos);
+	inicializaPilhaP(&presto);
 	char nome[25];
 	printf("  ____           _       _                          ____\n");
     printf(" / ___|__ _ _ __| |_ ___| |_ __ ___   ___  _ __    / ___| ___   \n");
@@ -396,45 +399,40 @@ char conf='n';
     }
 	}
 
+
+
 	removerelementos(vet, p1, p2, p3);
-	embaralhar(vet,12);
+	
+	embaralhar(vet,12); 
+	
+	
 	for(int k=0; k<12; k++) {
-		push(&presto,vet[k]);
+		pushP(&presto,(criarpokemon(vet[k])));
 	}
-	push(&pescolhidos, p1);
-	push(&pescolhidos, p2);
-	push(&pescolhidos, p3);
+	pushP(&pescolhidos, criarpokemon (p1)); 
+	pushP(&pescolhidos, criarpokemon (p2)); 
+	pushP(&pescolhidos, criarpokemon (p3)); 
 	printf("\n\n");
 
     printf("Seu time:\n");
-	imprimepoke(pescolhidos);
+	disppoke(p1);
+	disppoke(p2);
+	disppoke(p3);
 	printf("\n\n");
-	printf("Pokemons embaralhados para o computador:\n");
-	imprimepoke(presto);
+	int acabou =1;
+	while(acabou == 1){ // ou algo do tipo
+	acabou = COMBATE ( &pescolhidos, &pmortos, &iventario, &rounds, &presto)  // ver a ordem dps
+	rounds++;
+	if(pilhaVaziaP(presto)){
+	    embaralhar(vet,12);
+	    for(int k=0; k<12; k++) {
+		pushP(&presto,(criarpokemon(vet[k])));
+	}
+	}
+	}
 
-/*
 
-acho q o combate vai aqui
 
-*/
-    Jogador j;
-    j.dinheiros = 1000;
-    int qpokebola = 5, qpocao = 0, qrevive = 0, qgrandebola=0, qultrabola=0, qpepita=0, qdoceraro=0, num_de_round=0;
-    
-    tp_listad *l;
-    tp_listad *atu;
-    
-    crialistaloja(&l);
-    atu=l;
-    
-    Pilha p;
-    inicializaPilhaP(&p);
-    Pilha pdesmaiados;
-    inicializaPilhaP(&pdesmaiados);
-    
-    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round, &p, &pdesmaiados);
-   num_de_round++;
-    
 
 	return 0;
 }
