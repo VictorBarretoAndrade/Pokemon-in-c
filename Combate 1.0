@@ -1,76 +1,180 @@
 
 
 
-int  porrada(int *vidaA, int *vidaI,  ) {
+int porrada(int *vida, int dano, char tipo, char *Tipo_do_Pokemon) { // ver danos
+
+	if (tipo == 'agua') {
+		if (Tipo_do_Pokemon == 'fogo' || Tipo_do_Pokemon == 'terra') {
+			dano = 2.0;
+		} else if (Tipo_do_Pokemon == 'grama') {
+			dano = 0.5;
+		}
+	} else if (tipo == 'grama') {
+		if (Tipo_do_Pokemon == 'agua' || Tipo_do_Pokemon == 'terra') {
+			dano = 2.0;
+		} else if (Tipo_do_Pokemon == 'fogo') {
+			dano = 0.5;
+		}
+	} else if (tipo == 'fogo') {
+		if (Tipo_do_Pokemon == 'grama') {
+			dano = 2.0;
+		} else if (Tipo_do_Pokemon == 'agua' || Tipo_do_Pokemon == 'terra') {
+			dano = 0.5;
+		}
+	} else if (tipo == 'terra') {
+		if (Tipo_do_Pokemon == 'fogo' || Tipo_do_Pokemon == 'veneno') {
+			dano = 2.0;
+		} else if (Tipo_do_Pokemon == 'agua' || Tipo_do_Pokemon == 'grama') {
+			dano = 0.5;
+		}
+	} else if (tipo == 'veneno') {
+		if (Tipo_do_Pokemon == 'grama') {
+			dano = 2.0;
+		}
+	}
+}
+
+
+// Função para remover um Pokémon específico da pilha e retornar o Pokémon removido
+pokemon troca_pokemon(Pilha *p, char *nomePokemon) {
+    Pilha aux;
+    inicializaPilha(&aux);
+    int encontrado = 0;
+    pokemon removido;
+
+    
+    strcpy(removido.nome, "Não encontrado");
+    removido.vidamax = -1;   //porra é essa
+    removido.vidaatual = -1;
+
+    // Desempilha até encontrar o Pokémon ou a pilha ficar vazia
+    while (!pilhaVazia(p)) {
+        pokemon pkmn = pop(p);
+        if (strcmp(pkmn.nome, nomePokemon) == 0) {
+            removido = pkmn; // Guarda o Pokémon encontrado
+            encontrado = 1;
+            printf("Pokemon %s removido da pilha.\n", pkmn.nome);
+            break; // Encontrou e removeu o Pokémon
+        } else {
+            push(&aux, pkmn); // Armazena na pilha auxiliar
+        }
+    }
+
+    // Volta os elementos da pilha auxiliar para a pilha original
+    while (!pilhaVazia(&aux)) {
+        push(p, pop(&aux));   // n era popP? E pushP?
+    }
+
+    if (!encontrado) {
+        printf("Pokemon %s não encontrado na pilha.\n", nomePokemon);
+    }
+
+    return removido;
+}
 
 
 
 
 
-
-} return?
-
-void combate (int *pescolhidos, int *presto, iventario do brother, int rounds, *pdeamaiados) {
+void combate (Pilha *pescolhidos, Pilha *Pilhainimigo, bola *iventario, int *rounds,Pilha *pdeamaiados) {
 	tp_pokemon pinimigo,patual;
-	int escolha,skill,danoA,danoI,alguemmorreu=0;
+	int escolha,skill,dano, alguemmorreu=0;
+	char tipo[20];
 
-	top(*presto,pinimigo);
-	embaralhar(*presto,12);
-	pinimigo.vidaatual = vidamax (formula do nivel)
+	pinimigo = popP(&Pilhainimigo);
+	embaralhar(*presto,12); // VAI PRA MAIN DPS DO COMBATE
+	pinimigo.vidaatual = pinimigo.vidamax + ( 2 / rounds ); //  FAZER A MESMA COISA PROS NOSSOS BIXOS NA MAIN, TODA VEZ QUE ACABA O COMBATE
+	pinimigo.vidaatual = pinimigo.vidamax + ( 2 / rounds );  // DEFESA ATAQUE VELOCIDADE
+	pinimigo.vidaatual = pinimigo.vidamax + ( 2 / rounds );
+	pinimigo.vidaatual = pinimigo.vidamax + ( 2 / rounds );
 
-	pop(pescolhidos,patual);
-	
-	while(alguemmorreu == 0){
+	patual = popP(&pescolhidos);
 
-	printf("O que deseja fazer? 1 para lutar, 2 para trocar de pokemon, 3 para usar um item\n");
-	scanf("%d", &escolha);
+	while(alguemmorreu == 0) {
+
+		printf("Digite 1 para lutar, 2 para trocar de pokemon, 3 para usar um item\n");
+		scanf("%d", &escolha);
 
 
-	if(escolha == 1) {
+		if(escolha == 1) {
 
-		printf("Qual habilidade ira escolher?\n");
-		printf( patual.h1); //arrumar quero me matar
-		printf( patual.h2); //arrumar
-		scanf("%d",&skill);
-		if(skill ==1) {
-			danoA = patual.h1.dano;   //arrumar
-		} else
-			danoA = patual.h2.dano;    //arrumar
+			if(patual.velocidade > pinimigo.velocidade ) {
+				printf("Qual habilidade ira escolher?\n");
+				printf(" %s", patual.h1);
+				printf(" %s", patual.h2);
+				scanf("%d",&skill);
 
-		skill = (rand() % 2);   //confirmar +1
-		if(skill ==1) {
-			danoI = pinimigo.h1.dano;   //arrumar
-		} else
-			danoI = pinimigo.h2.dano;    //arrumar
-			
-			
-		porrada(vida dos 2 + dano das skill);
+				if(skill == 1) {
+					dano = patual.h1.dano;
+					tipo = patual.h1.tipo;
+				} else {
+					dano = patual.h2.dano;
+					tipo = patual.h2.tipo;
+				}
+				porrada ( &pinimigo.vidaatual, dano, tipo  ) 
+				if (pinimigo.vidaatual <= 0) {
+					printf("Voce venceu a batalha\n");
+					alguemmorreu = 1;           // return 0? exit(), sair da funC'C#o
 
-		if (patual.vidaatual <= 0) { //arrumar
-			printf("Seu pokemon desmaiou\n");
-			if(pilhavazia(pescolhidos)) {   //arrumar
-				printf("Voce perdeu\n");
-				return 0;
+				}
+			} else {
+				skill = (rand() % 2);   //confirmar +1
+				if(skill == 1) {
+					dano = pinimigo.h1.dano;
+					tipo = pinimigo.h1.tipo;
+				} else {
+					dano = pinimigo.h2.dano;
+					tipo = pinimigo.h2.tipo;
+
+				}
+				porrada ( &patual.vidaatual, dano, tipo  )
+
+
+				if (patual.vidaatual <= 0) { 
+				    
+				    if(pilhavaziaP(pescolhidos)) {   //arrumar?
+						printf("Voce perdeu\n");
+						return 0; // PARA O PROGRAMA exit()?
+					}
+				    
+					printf("Seu pokemon desmaiou\n");
+					patual = troca_pokemon(parametros )  // tem q ver isso aqui acaba o combate?
+					
+   
+					
+				}
+				printf("Qual habilidade ira escolher?\n");
+				printf(" %s", patual.h1);
+				printf(" %s", patual.h2);
+				scanf("%d",&skill);
+
+				if(skill == 1) {
+					danoA = patual.h1.dano;   //arrumar
+					tipo = patual.tipo;
+				} else {
+					danoA = patual.h2.dano;    //arrumar
+					tipo = patual.tipo;
+				}
+				porrada (  pinimigo.vidaatual, dano, tipo  )
 			}
-			push(pdesmaiados,patual);
-			pop(pescolhidos,patual);
-		}
 
-		if (pinimigo.vidaatual <= 0) {
-			printf("Você venceu a batalha\n");
-			alguemmorreu = 1;
-			
+			if (pinimigo.vidaatual <= 0) {
+				printf("Voce venceu a batalha\n");
+				alguemmorreu = 1;
+
+			}
+
 		}
-    if(escolha == 2){
-        
-        nova função pra trocar pokemon sem perder o atual 
-        
-    }
-    if(escolha == 3){
-        
-        função de juli
-        
-    }
+		if(escolha == 2) {
+
+			troca_pokemon(parametros )  // tem q ver isso aqui
+
+		}
+		if(escolha == 3) {
+
+			funC'C#o de juli
+
+		}
 
 	}
 
