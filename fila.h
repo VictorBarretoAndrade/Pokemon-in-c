@@ -1,7 +1,7 @@
 #ifndef FILA_H
 #define FILA_H
 #include <stdio.h>
-#define MAX 100
+#define MAX 10
 
 typedef int
 tp_item;
