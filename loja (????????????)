@@ -122,9 +122,8 @@ void usa_revive(Pilha * p, Pilha * pdesmaiados){
     
 }
 
-void usa_pepita(Jogador * j, int *n){
-    j->dinheiros+= 310 + *n;
-    *n+=20;
+void usa_pepita(Jogador * j, int num_de_round){
+    j->dinheiros+= 310 + 10 * (num_de_round);
 }
 
 void usa_doceraro(Pilha * p){
@@ -134,7 +133,8 @@ void usa_doceraro(Pilha * p){
     pokemon_selecionado.nivel++;
 }
 
-void loja(Jogador *j, int *qpokebola, int *qgrandebola, int *qultrabola, Pilha * p, Pilha * pdesmaiados) {
+void loja(Jogador *j, int *qpokebola, int *qgrandebola, int *qultrabola, Pilha * p, Pilha * pdesmaiados, int * num_de_round) {
+  printf("%d", *num_de_round);
     int opcao;
     #ifdef _WIN32
 	system("cls");
@@ -145,9 +145,9 @@ void loja(Jogador *j, int *qpokebola, int *qgrandebola, int *qultrabola, Pilha *
     printf("%d pokebolas, %d grandes bolas, %d ultra bolas\n", *qpokebola, *qgrandebola, *qultrabola);
     printf("Obs: itens obtidos serão usados automaticamente (exceto pokebolas)\n\n");
     printf("Bem-vindo à loja! Você tem %d dinheiros.\n", j->dinheiros);
-    printf("1. Comprar poção (36 dinheiros)\n");
-    printf("2. Comprar pokébola (38 dinheiros)\n");
-    printf("3. Comprar revive (360 dinheiros)\n");
+    printf("1. Comprar poção (%d dinheiros)\n", 36 + 4 * (*num_de_round));
+    printf("2. Comprar pokébola (%d dinheiros)\n", 38 + 2 * (*num_de_round));
+    printf("3. Comprar revive (%d dinheiros)\n", 360 + 20 * (*num_de_round));
     printf("4. Sair da loja\n");
 
     scanf("%d", &opcao);
@@ -195,7 +195,7 @@ void loja(Jogador *j, int *qpokebola, int *qgrandebola, int *qultrabola, Pilha *
             sleep(3);
     }
     if(opcao!=4){
-        loja(j, qpokebola, qgrandebola, qultrabola, p, pdesmaiados);
+        loja(j, qpokebola, qgrandebola, qultrabola, p, pdesmaiados, num_de_round);
     }
 }
 
@@ -260,7 +260,7 @@ printf("Bem vindo ao seu inventário!\n");
             (*qultrabola)+=1;
         }
         else if (strcmp(item_lootbox, "Pepita --> Garante uma certa quantidade de dinheiro") == 0){
-            usa_pepita(j, num_de_round);
+            usa_pepita(j, *num_de_round);
         }
         else if (strcmp(item_lootbox, "Pokebola x5 --> Garante uma chance de capturar o pokemon adversário") == 0){
             (*qpokebola)+=5;
@@ -284,7 +284,7 @@ printf("Bem vindo ao seu inventário!\n");
             (*qultrabola)+=1;
         }
         else if (strcmp(item_lootbox, "Pepita --> Garante uma certa quantidade de dinheiro") == 0){
-            usa_pepita(j, num_de_round);
+            usa_pepita(j, *num_de_round);
         }
         else if (strcmp(item_lootbox, "Pokebola x5 --> Garante uma chance de capturar o pokemon adversário") == 0){
             (*qpokebola)+=5;
@@ -308,7 +308,7 @@ printf("Bem vindo ao seu inventário!\n");
             (*qultrabola)+=1;
         }
         else if (strcmp(item_lootbox, "Pepita --> Garante uma certa quantidade de dinheiro") == 0){
-            usa_pepita(j, num_de_round);
+            usa_pepita(j, *num_de_round);
         }
         else if (strcmp(item_lootbox, "Pokebola x5 --> Garante uma chance de capturar o pokemon adversário") == 0){
             (*qpokebola)+=5;
@@ -317,7 +317,7 @@ printf("Bem vindo ao seu inventário!\n");
             usa_doceraro(p);
         }
     }
-    loja(j, qpokebola, qgrandebola, qultrabola, p, pdesmaiados);
+    loja(j, qpokebola, qgrandebola, qultrabola, p, pdesmaiados, num_de_round);
     
     #ifdef _WIN32
 	system("cls");
@@ -333,7 +333,7 @@ int main() {
     Jogador j;
     j.dinheiros = 1000;
     int qpokebola = 5, qpocao = 0, qrevive = 0, qgrandebola=0, qultrabola=0, qpepita=0, qdoceraro=0, num_de_round=0;
-    
+    printf("%d", num_de_round);
     tp_listad *l;
     tp_listad *atu;
     
@@ -343,11 +343,17 @@ int main() {
     Pilha pdesmaiados;
     
     atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round, &p, &pdesmaiados);//p=pilha de pokemons escolhidos pelo jogador    pdesmaiados=pilha de pokemons desmaiados do jogador
+   num_de_round++;
     atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round, &p, &pdesmaiados);//p=pilha de pokemons escolhidos pelo jogador    pdesmaiados=pilha de pokemons desmaiados do jogador
+    num_de_round++;
     atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round, &p, &pdesmaiados);//p=pilha de pokemons escolhidos pelo jogador    pdesmaiados=pilha de pokemons desmaiados do jogador
+    num_de_round++;
     atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round, &p, &pdesmaiados);//p=pilha de pokemons escolhidos pelo jogador    pdesmaiados=pilha de pokemons desmaiados do jogador
+    num_de_round++;
     atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round, &p, &pdesmaiados);//p=pilha de pokemons escolhidos pelo jogador    pdesmaiados=pilha de pokemons desmaiados do jogador
+    num_de_round++;
     atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round, &p, &pdesmaiados);//p=pilha de pokemons escolhidos pelo jogador    pdesmaiados=pilha de pokemons desmaiados do jogador
+    num_de_round++;
     atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round, &p, &pdesmaiados);//p=pilha de pokemons escolhidos pelo jogador    pdesmaiados=pilha de pokemons desmaiados do jogador
     
     
