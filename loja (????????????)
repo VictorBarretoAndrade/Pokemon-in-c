@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "listad.h"
+#include "pilhap.h"
+#include <time.h>
 #include <unistd.h>
 
 typedef struct {
@@ -9,15 +11,97 @@ typedef struct {
 } Jogador;
 //acho q n precisa, na real
 
+void escolhe_pokemon(Pilha *p){                                              //fazer função
+    while(!pilhaVaziaP(p)){
+       printf("")
+        pop(p)
+    }
+}
 
-void loja(Jogador *j, int *qpokebola, int *qpocao, int *qrevive) {
+
+void pega_pokemon(Pilha * pescolhidos, pokemon * pinimigo){
+        pushP(pescolhidos, *pinimigo);
+}
+
+void usa_pokebola(pokemon * p, Pilha *pescolhidos, pokemon * pinimigo){
+    if(pescolhidos->topo<6){
+        srand(time(NULL));
+        
+        if((rand() % 100)>((-5600 * pinimigo->vidaatual/pinimigo->vidamax + 6000)/100 + 12 )/100){
+            pega_pokemon(pescolhidos, pinimigo);                                            
+        }
+    }else{
+        printf("Você já tem seis pokemons no seu time. Não é possivel capturar mais\n");
+    }
+    
+    
+    
+}
+
+void usa_grande_bola(Pilha * pescolhidos, pokemon * pinimigo){
+    if(pescolhidos->topo<6){
+        srand(time(NULL));
+        if((rand() % 100)>((-5600 * pinimigo->vidaatual/pinimigo->vidamax + 6000)/100 + 24 )/100){
+        pega_pokemon(pescolhidos, pinimigo);                                                                               
+        }
+    }else{
+        printf("Você já tem seis pokemons no seu time. Não é possivel capturar mais\n");
+    }
+    
+}
+
+void usa_ultra_bola(Pilha * pescolhidos, pokemon * pinimigo){
+    if(pescolhidos->topo<6){
+        srand(time(NULL));
+        if((rand() % 100)>((-5600 * pinimigo->vidaatual/pinimigo->vidamax + 6000)/100 + 36 )/100){
+        pega_pokemon(pescolhidos, pinimigo);                                                                               
+        }
+    }else{
+        printf("Você já tem seis pokemons no seu time. Não é possivel capturar mais\n");
+    }
+    
+}
+
+int usa_pocao(pokemon * pokemon_selecionado){//acho q tem q tirar esse argumento e deixar só a chamada de escolhe_pokemon
+    printf("Escolha um pokemon para usar a poção:\n");
+    escolhe_pokemon();                                                                                   //fazer função
+     if(pokemon_selecionado->vidaatual==0){
+        printf("Esse pokemon está desmaiado... É necessário revivê-lo\n");
+        return 0;
+    }
+    pokemon_selecionado->vidaatual+=20;
+    if(pokemon_selecionado->vidaatual > pokemon_selecionado->vidamax){
+        pokemon_selecionado->vidaatual=pokemon_selecionado->vidamax;
+    }
+   
+}
+
+void usa_revive(){//trazer a pilha de pokemons desmaiados
+    //                                                                                       precisa do ocodigo do combate, acho
+    printf("Escolha um pokemon desmaiado para reviver:\n");
+    escolhe_pokemon();                                                                                   //fazer função
+}
+
+void usa_pepita(Jogador * j, int *n){
+    j->dinheiros+= 310 + *n;
+    *n+=20;
+}
+
+void usa_doceraro(pokemon * pokemon_selecionado){//acho q tem q tirar esse argumento e deixar só a chamada de escolhe_pokemon
+    escolhe_pokemon();                                                                                   //fazer função
+    pokemon_selecionado->nivel++;
+}
+
+void loja(Jogador *j, int *qpokebola, int *qpocao, int *qrevive, int *qgrandebola, int *qultrabola, int *qpepita, int *qdoceraro) {
     int opcao;
     #ifdef _WIN32
 	system("cls");
 #else
 	system("clear");
 #endif
-    printf("%d pokebolas, %d poções, %d revives\n\n", *qpokebola, *qpocao, *qrevive);
+    printf("Seu inventário:\n");
+    printf("%d pokebolas, %d grandes bolas, %d ultra bolas, %d poções, %d revives, %d doces raros\n", *qpokebola, *qgrandebola, *qultrabola, *qpocao, *qrevive, *qdoceraro);
+    printf("Obs: itens obtidos serão usados automaticamente (exceto pokebolas)\n\n");
     printf("Bem-vindo à loja! Você tem %d dinheiros.\n", j->dinheiros);
     printf("1. Comprar poção (300 dinheiros)\n");
     printf("2. Comprar pokébola (300 dinheiros)\n");
@@ -69,27 +153,33 @@ void loja(Jogador *j, int *qpokebola, int *qpocao, int *qrevive) {
             sleep(3);
     }
     if(opcao!=4){
-        loja(j, qpokebola, qpocao, qrevive);
+        loja(j, qpokebola, qpocao, qrevive, qgrandebola, qultrabola, qpepita, qdoceraro);
     }
 }
 
 void crialistaloja(tp_listad **l) {
     *l = inicializa_listad();
-    char pocao[10] = "poção";
-    char pokebola[10] = "pokebola";
-    char revive[10] = "revive";
+    char pocao[90] = "Poção --> Restaura 20 de hp do pokemon selecionado";
+    char grande_bola[90] = "Grande bola x2 --> Garante uma chance considerável de capturar o pokemon adversário";
+    char ultra_bola[90] = "Ultra bola x1 --> Garante uma alta chance de capturar o pokemon adversário";
+    char pepita[90] = "Pepita --> Garante uma certa quantidade de dinheiro";
+    char pokebola[90] = "Pokebola x5 --> Garante uma chance de capturar o pokemon adversário";
+    char doce_raro[90] = "Doce raro --> Aumenta o nivel do pokemon em 1";
     
-    insere_listad_no_fim(*l, revive);
     insere_listad_no_fim(*l, pocao);
+    insere_listad_no_fim(*l, grande_bola);
+    insere_listad_no_fim(*l, pepita);
     insere_listad_no_fim(*l, pokebola);
+    insere_listad_no_fim(*l, doce_raro);
+    insere_listad_no_fim(*l, pocao);
+    insere_listad_no_fim(*l, ultra_bola);
+    insere_listad_no_fim(*l, pepita);
 
     (*l)->fim->prox = (*l)->ini;
     (*l)->ini->ant = (*l)->fim;
-    //imprime_listad(*l, 1);
-    //a lista tá certa
 }
 
-tp_listad * imprimelistalootbox(Jogador *j, tp_listad *atu, int *qpokebola, int *qpocao, int *qrevive) {
+tp_listad * imprimelistalootbox(Jogador *j, tp_listad *atu, int *qpokebola, int *qpocao, int *qrevive, int *qgrandebola, int *qultrabola, int *qpepita, int *qdoceraro, int *num_de_round) {
     int item;
     char * item_lootbox;
      #ifdef _WIN32
@@ -97,43 +187,95 @@ tp_listad * imprimelistalootbox(Jogador *j, tp_listad *atu, int *qpokebola, int 
 #else
 	system("clear");
 #endif
-    printf("%d pokebolas, %d poções, %d revives\n\n", *qpokebola, *qpocao, *qrevive);
+printf("Bem vindo ao seu iventário!\n");
+    printf("Você tem %d pokebolas, %d grandes bolas, %d ultra bolas, %d poções, %d revives, %d doces raros\n", *qpokebola, *qgrandebola, *qultrabola, *qpocao, *qrevive, *qdoceraro);
+    printf("Obs: itens obtidos serão usados automaticamente (exceto pokebolas)\n\n");
     printf("Escolha um item da Lootbox:\n");
     
-    for (int i = 0; i < 2; i++) { 
+    for (int i = 0; i < 3; i++) { 
         atu->ini = atu->ini->prox;
-        printf("%d. %s\n",i+1, atu->ini->info/*tá dando lixo*/);
+        if(strcmp(atu->ini->info, "Pepita --> Garante uma certa quantidade de dinheiro")==0){
+            printf("%d. %s ",i+1, atu->ini->info);
+            printf("(dá %d dinheiros!)\n", (*num_de_round * 10 + 310));
+        }else{
+        printf("%d. %s\n",i+1, atu->ini->info);
+        }
+        
     }
     scanf("%d", &item);
     if(item==2){
-        item_lootbox = atu->ini->info;
-        printf("Você adquiriu um(a) %s!\n\n", item_lootbox);
+        item_lootbox = atu->ini->ant->info;
+        printf("Você adquiriu: %s!\n\n", item_lootbox);
+        sleep(4);
         
-        if (strcmp(atu->ini->info, "poção") == 0){
-            (*qpocao)++;
+        if (strcmp(item_lootbox, "Poção --> Restaura 20 de hp do pokemon selecionado") == 0){
+            (*qpocao)+=1;
         }
-        else if (strcmp(atu->ini->info, "pokebola") == 0){
-            (*qpokebola)++;
+        else if (strcmp(item_lootbox, "Grande bola x2 --> Garante uma chance considerável de capturar o pokemon adversário") == 0){
+            (*qgrandebola)+=2;
         }
-        else if (strcmp(atu->ini->info, "revive") == 0){ 
-            (*qrevive)++;
+        else if (strcmp(item_lootbox, "Ultra bola x1 --> Garante uma alta chance de capturar o pokemon adversário") == 0){
+            (*qultrabola)+=1;
+        }
+        else if (strcmp(item_lootbox, "Pepita --> Garante uma certa quantidade de dinheiro") == 0){
+            usa_pepita(j, num_de_round);
+        }
+        else if (strcmp(item_lootbox, "Pokebola x5 --> Garante uma chance de capturar o pokemon adversário") == 0){
+            (*qpokebola)+=5;
+        }
+        else if (strcmp(item_lootbox, "Doce raro --> Aumenta o nivel do pokemon em 1") == 0){ 
+            (*qdoceraro)+=1;
         }
     }
     else if(item==1){
-        item_lootbox = atu->ini->ant->info;
-        printf("Você adquiriu um(a) %s!\n\n", item_lootbox);
+        item_lootbox = atu->ini->ant->ant->info;
+        printf("Você adquiriu: %s!\n\n", item_lootbox);
+        sleep(4);
         
-        if (strcmp(atu->ini->ant->info, "poção") == 0){
+        if (strcmp(item_lootbox, "Poção --> Restaura 20 de hp do pokemon selecionado") == 0){
             (*qpocao)++;
         }
-        else if (strcmp(atu->ini->ant->info, "pokebola") == 0){
-            (*qpokebola)++;
+        else if (strcmp(item_lootbox, "Grande bola x2 --> Garante uma chance considerável de capturar o pokemon adversário") == 0){
+            (*qgrandebola)+=2;
         }
-        else if (strcmp(atu->ini->ant->info, "revive") == 0){ 
-            (*qrevive)++;
+        else if (strcmp(item_lootbox, "Ultra bola x1 --> Garante uma alta chance de capturar o pokemon adversário") == 0){
+            (*qultrabola)++;
+        }
+        else if (strcmp(item_lootbox, "Pepita --> Garante uma certa quantidade de dinheiro (~~~)") == 0){
+            usa_pepita(j, num_de_round);
+        }
+        else if (strcmp(item_lootbox, "Pokebola x5 --> Garante uma chance de capturar o pokemon adversário") == 0){
+            (*qpokebola)+=5;
+        }
+        else if (strcmp(item_lootbox, "Doce raro --> Aumenta o nivel do pokemon em 1") == 0){ 
+            (*qdoceraro)++;
         }
     }
-    loja(j, qpokebola, qpocao, qrevive);
+    else if(item==3){
+        item_lootbox = atu->ini->info;
+        printf("Você adquiriu: %s!\n\n", item_lootbox);
+        sleep(4);
+        
+        if (strcmp(item_lootbox, "Poção --> Restaura 20 de hp do pokemon selecionado") == 0){
+            (*qpocao)++;
+        }
+        else if (strcmp(item_lootbox, "Grande bola x2 --> Garante uma chance considerável de capturar o pokemon adversário") == 0){
+            (*qgrandebola)+=2;
+        }
+        else if (strcmp(item_lootbox, "Ultra bola x1 --> Garante uma alta chance de capturar o pokemon adversário") == 0){
+            (*qultrabola)++;
+        }
+        else if (strcmp(item_lootbox, "Pepita --> Garante uma certa quantidade de dinheiro (~~~)") == 0){
+            usa_pepita(j, num_de_round);
+        }
+        else if (strcmp(item_lootbox, "Pokebola x5 --> Garante uma chance de capturar o pokemon adversário") == 0){
+            (*qpokebola)+=5;
+        }
+        else if (strcmp(item_lootbox, "Doce raro --> Aumenta o nivel do pokemon em 1") == 0){ 
+            (*qdoceraro)++;
+        }
+    }
+    loja(j, qpokebola, qpocao, qrevive, qgrandebola, qultrabola, qpepita, qdoceraro);
     
     #ifdef _WIN32
 	system("cls");
@@ -143,13 +285,12 @@ tp_listad * imprimelistalootbox(Jogador *j, tp_listad *atu, int *qpokebola, int 
     
     return atu;
     
-    
 }
 
 int main() {
     Jogador j;
     j.dinheiros = 1000;
-    int qpokebola = 5, qpocao = 0, qrevive = 0;
+    int qpokebola = 5, qpocao = 0, qrevive = 0, qgrandebola=0, qultrabola=0, qpepita=0, qdoceraro=0, num_de_round=0;
     
     tp_listad *l;
     tp_listad *atu;
@@ -157,23 +298,15 @@ int main() {
     crialistaloja(&l);
     atu=l;
     
-    char *item_lootbox; //aponta para oq o usuario escolhe na lootbox
-    
-    
-    
-    
     //atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive);
-    
-    
-    
-    //seria bom colocar a quantidade de cada coisa antes
-    
-    
-    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive);
-    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive);
-    
-    
-    //tb tentei jogar isso pra uma função separada, mas fui incapaz :(
+
+    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round);
+    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round);
+    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round);
+    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round);
+    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round);
+    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round);
+    atu=imprimelistalootbox(&j ,atu, &qpokebola, &qpocao, &qrevive, &qgrandebola, &qultrabola, &qpepita, &qdoceraro, &num_de_round);
     
     return 0;
 }
