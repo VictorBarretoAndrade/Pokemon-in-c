@@ -1,0 +1,78 @@
+
+
+
+int  porrada(int *vidaA, int *vidaI,  ) {
+
+
+
+
+
+
+} return?
+
+void combate (int *pescolhidos, int *presto, iventario do brother, int rounds, *pdeamaiados) {
+	tp_pokemon pinimigo,patual;
+	int escolha,skill,danoA,danoI,alguemmorreu=0;
+
+	top(*presto,pinimigo);
+	embaralhar(*presto,12);
+	pinimigo.vidaatual = vidamax (formula do nivel)
+
+	pop(pescolhidos,patual);
+	
+	while(alguemmorreu == 0){
+
+	printf("O que deseja fazer? 1 para lutar, 2 para trocar de pokemon, 3 para usar um item\n");
+	scanf("%d", &escolha);
+
+
+	if(escolha == 1) {
+
+		printf("Qual habilidade ira escolher?\n");
+		printf( patual.h1); //arrumar quero me matar
+		printf( patual.h2); //arrumar
+		scanf("%d",&skill);
+		if(skill ==1) {
+			danoA = patual.h1.dano;   //arrumar
+		} else
+			danoA = patual.h2.dano;    //arrumar
+
+		skill = (rand() % 2);   //confirmar +1
+		if(skill ==1) {
+			danoI = pinimigo.h1.dano;   //arrumar
+		} else
+			danoI = pinimigo.h2.dano;    //arrumar
+			
+			
+		porrada(vida dos 2 + dano das skill);
+
+		if (patual.vidaatual <= 0) { //arrumar
+			printf("Seu pokemon desmaiou\n");
+			if(pilhavazia(pescolhidos)) {   //arrumar
+				printf("Voce perdeu\n");
+				return 0;
+			}
+			push(pdesmaiados,patual);
+			pop(pescolhidos,patual);
+		}
+
+		if (pinimigo.vidaatual <= 0) {
+			printf("Você venceu a batalha\n");
+			alguemmorreu = 1;
+			
+		}
+    if(escolha == 2){
+        
+        nova função pra trocar pokemon sem perder o atual 
+        
+    }
+    if(escolha == 3){
+        
+        função de juli
+        
+    }
+
+	}
+
+}
+}
