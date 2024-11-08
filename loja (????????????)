@@ -329,7 +329,7 @@ printf("Bem vindo ao seu inventário!\n");
     
 }
 
-int main() {
+/*int main() {
     Jogador j;
     j.dinheiros = 1000;
     int qpokebola = 5, qpocao = 0, qrevive = 0, qgrandebola=0, qultrabola=0, qpepita=0, qdoceraro=0, num_de_round=0;
@@ -358,4 +358,4 @@ int main() {
     
     
     return 0;
-}
+}*/
