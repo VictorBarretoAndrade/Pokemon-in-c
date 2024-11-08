@@ -145,17 +145,17 @@ void loja(Jogador *j, int *qpokebola, int *qgrandebola, int *qultrabola, Pilha *
     printf("%d pokebolas, %d grandes bolas, %d ultra bolas\n", *qpokebola, *qgrandebola, *qultrabola);
     printf("Obs: itens obtidos serão usados automaticamente (exceto pokebolas)\n\n");
     printf("Bem-vindo à loja! Você tem %d dinheiros.\n", j->dinheiros);
-    printf("1. Comprar poção (300 dinheiros)\n");
-    printf("2. Comprar pokébola (300 dinheiros)\n");
-    printf("3. Comprar revive (500 dinheiros)\n");
+    printf("1. Comprar poção (36 dinheiros)\n");
+    printf("2. Comprar pokébola (38 dinheiros)\n");
+    printf("3. Comprar revive (360 dinheiros)\n");
     printf("4. Sair da loja\n");
 
     scanf("%d", &opcao);
 
     switch(opcao) {
         case 1:
-            if (j->dinheiros >= 300) {
-                j->dinheiros -= 300;
+            if (j->dinheiros >= 36) {
+                j->dinheiros -= 36;
                 printf("Você comprou uma poção!\n\n");
                 usa_pocao(p);                                   
                 sleep(3);
@@ -165,8 +165,8 @@ void loja(Jogador *j, int *qpokebola, int *qgrandebola, int *qultrabola, Pilha *
             }
             break;
         case 2:
-            if (j->dinheiros >= 300) {
-                j->dinheiros -= 300;
+            if (j->dinheiros >= 38) {
+                j->dinheiros -= 38;
                 printf("Você comprou uma pokébola!\n\n");
                 (*qpokebola)++;
                 sleep(3);
@@ -176,8 +176,8 @@ void loja(Jogador *j, int *qpokebola, int *qgrandebola, int *qultrabola, Pilha *
             }
             break;
         case 3:
-            if (j->dinheiros >= 500) {
-                j->dinheiros -= 500;
+            if (j->dinheiros >= 360) {
+                j->dinheiros -= 360;
                 printf("Você comprou um revive!\n\n");
                 usa_revive(p, pdesmaiados);                                    
                 sleep(3);
@@ -229,7 +229,7 @@ tp_listad * imprimelistalootbox(Jogador *j, tp_listad *atu, int *qpokebola, int 
 #else
 	system("clear");
 #endif
-printf("Bem vindo ao seu iventário!\n");
+printf("Bem vindo ao seu inventário!\n");
     printf("Você tem %d pokebolas, %d grandes bolas, %d ultra bolas\n", *qpokebola, *qgrandebola, *qultrabola);
     printf("Obs: itens obtidos serão usados automaticamente (exceto pokebolas)\n\n");
     printf("Escolha um item da Lootbox:\n");
