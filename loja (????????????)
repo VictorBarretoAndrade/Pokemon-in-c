@@ -134,7 +134,6 @@ void usa_doceraro(Pilha * p){
 }
 
 void loja(Jogador *j, int *qpokebola, int *qgrandebola, int *qultrabola, Pilha * p, Pilha * pdesmaiados, int * num_de_round) {
-  printf("%d", *num_de_round);
     int opcao;
     #ifdef _WIN32
 	system("cls");
@@ -333,7 +332,6 @@ printf("Bem vindo ao seu inventário!\n");
     Jogador j;
     j.dinheiros = 1000;
     int qpokebola = 5, qpocao = 0, qrevive = 0, qgrandebola=0, qultrabola=0, qpepita=0, qdoceraro=0, num_de_round=0;
-    printf("%d", num_de_round);
     tp_listad *l;
     tp_listad *atu;
     
